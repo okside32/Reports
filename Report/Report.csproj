@@ -48,12 +48,24 @@
       <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net20\Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="GemBox.Spreadsheet, Version=41.3.30.1091, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
-      <HintPath>..\packages\GemBox.Spreadsheet.41.3.30.1091\lib\net30\GemBox.Spreadsheet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Common, Version=1.2.366.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.XLS.7.9.1\lib\net40\Spire.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.6.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpireXLSstandard.7.12\lib\net40\Spire.License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.6.230.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.XLS.7.9.1\lib\net40\Spire.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=7.12.0.60040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpireXLSstandard.7.12\lib\net40\Spire.XLS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -88,6 +100,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ActivityManager\ActivityManager.exe.config" />
+    <None Include="ActivityManager\AmEditor.exe.config" />
+    <None Include="ActivityManager\AmEditor.ignorelist" />
+    <None Include="ActivityManager\caspol.bat" />
+    <None Include="ActivityManager\lang\activity_manager.en" />
+    <None Include="ActivityManager\lang\am_editor.en" />
+    <None Include="ActivityManager\lang\io_module.en" />
+    <None Include="ActivityManager\lang\report_module.en" />
+    <None Include="ActivityManager\lang\sql_module.en" />
+    <None Include="ActivityManager\mssql.synax" />
+    <None Include="ActivityManager\plugins\Except.dic" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -98,6 +122,49 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActivityManager\ActivityManager.exe" />
+    <Content Include="ActivityManager\AMClasses.dll" />
+    <Content Include="ActivityManager\AmEditor.exe" />
+    <Content Include="ActivityManager\AmLibrary.dll" />
+    <Content Include="ActivityManager\plugins\ConvertModule.dll" />
+    <Content Include="ActivityManager\plugins\ConvertModule.xml" />
+    <Content Include="ActivityManager\plugins\DataTypes.dll" />
+    <Content Include="ActivityManager\plugins\Declension.dll" />
+    <Content Include="ActivityManager\plugins\ExtendedTypes.dll" />
+    <Content Include="ActivityManager\plugins\gudusoft.gsqlparser.dll" />
+    <Content Include="ActivityManager\plugins\HtmlAgilityPack.dll" />
+    <Content Include="ActivityManager\plugins\HtmlAgilityPack.xml" />
+    <Content Include="ActivityManager\plugins\HtmlDataSource.dll" />
+    <Content Include="ActivityManager\plugins\HtmlDataSource.XML" />
+    <Content Include="ActivityManager\plugins\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="ActivityManager\plugins\IOModule.dll" />
+    <Content Include="ActivityManager\plugins\IOModule.xml" />
+    <Content Include="ActivityManager\plugins\JSModule.dll" />
+    <Content Include="ActivityManager\plugins\JSModule.xml" />
+    <Content Include="ActivityManager\plugins\JsonDataSource.dll" />
+    <Content Include="ActivityManager\plugins\JsonDataSource.XML" />
+    <Content Include="ActivityManager\plugins\msvcm90.dll" />
+    <Content Include="ActivityManager\plugins\msvcp90.dll" />
+    <Content Include="ActivityManager\plugins\msvcr90.dll" />
+    <Content Include="ActivityManager\plugins\Newtonsoft.Json.dll" />
+    <Content Include="ActivityManager\plugins\Newtonsoft.Json.xml" />
+    <Content Include="ActivityManager\plugins\Noesis.Javascript.dll" />
+    <Content Include="ActivityManager\plugins\PadegUC.dll" />
+    <Content Include="ActivityManager\plugins\QueryTextDriver.dll" />
+    <Content Include="ActivityManager\plugins\QueryTextDriverException.dll" />
+    <Content Include="ActivityManager\plugins\ReportModule.dll" />
+    <Content Include="ActivityManager\plugins\ReportModule.xml" />
+    <Content Include="ActivityManager\plugins\SqlDataSource.dll" />
+    <Content Include="ActivityManager\plugins\SqlDataSource.xml" />
+    <Content Include="ActivityManager\plugins\TextDataSource.dll" />
+    <Content Include="ActivityManager\plugins\TextDataSource.xml" />
+    <Content Include="ActivityManager\plugins\XmlDataSource.dll" />
+    <Content Include="ActivityManager\plugins\XmlDataSource.XML" />
+    <Content Include="ActivityManager\SciLexer.dll" />
+    <Content Include="ActivityManager\ScintillaNET.dll" />
+    <Content Include="ActivityManager\ScintillaNET.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

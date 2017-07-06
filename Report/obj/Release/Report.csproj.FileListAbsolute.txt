@@ -8,3 +8,15 @@ C:\vsProjects\Report\Report\obj\Release\Report.Properties.Resources.resources
 C:\vsProjects\Report\Report\obj\Release\Report.csproj.GenerateResource.Cache
 C:\vsProjects\Report\Report\obj\Release\Report.exe
 C:\vsProjects\Report\Report\obj\Release\Report.pdb
+C:\vsProjects\Report\Report\bin\Release\Report.exe.config
+C:\vsProjects\Report\Report\bin\Release\ClosedXML.dll
+C:\vsProjects\Report\Report\bin\Release\DocumentFormat.OpenXml.dll
+C:\vsProjects\Report\Report\bin\Release\EPPlus.dll
+C:\vsProjects\Report\Report\bin\Release\Spire.Common.dll
+C:\vsProjects\Report\Report\bin\Release\Spire.Pdf.dll
+C:\vsProjects\Report\Report\bin\Release\ClosedXML.pdb
+C:\vsProjects\Report\Report\bin\Release\ClosedXML.xml
+C:\vsProjects\Report\Report\bin\Release\EPPlus.xml
+C:\vsProjects\Report\Report\bin\Release\Spire.Common.xml
+C:\vsProjects\Report\Report\bin\Release\Spire.Pdf.xml
+C:\vsProjects\Report\Report\obj\Release\Report.csprojResolveAssemblyReference.cache

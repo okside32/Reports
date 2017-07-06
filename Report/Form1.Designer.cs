@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.OpenForTopsButton = new System.Windows.Forms.Button();
-            this.sales = new System.Windows.Forms.DataGridView();
+            this.salesDataGridView = new System.Windows.Forms.DataGridView();
             this.YesterdaySalesButton = new System.Windows.Forms.Button();
             this.TodaySalesButton = new System.Windows.Forms.Button();
             this.TopSalesPath = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.RemainTextBox = new System.Windows.Forms.TextBox();
             this.RevisionButton = new System.Windows.Forms.Button();
             this.RemainButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             this.Tab.SuspendLayout();
             this.tabTop.SuspendLayout();
             this.tabRemains.SuspendLayout();
@@ -61,19 +61,19 @@
             this.OpenForTopsButton.UseVisualStyleBackColor = true;
             this.OpenForTopsButton.Click += new System.EventHandler(this.Open_Click);
             // 
-            // sales
+            // salesDataGridView
             // 
-            this.sales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.salesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.sales.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sales.Location = new System.Drawing.Point(8, 106);
-            this.sales.Name = "sales";
-            this.sales.Size = new System.Drawing.Size(585, 448);
-            this.sales.TabIndex = 1;
-            this.sales.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.sales_DataBindingComplete);
+            this.salesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.salesDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesDataGridView.Location = new System.Drawing.Point(8, 106);
+            this.salesDataGridView.Name = "salesDataGridView";
+            this.salesDataGridView.Size = new System.Drawing.Size(585, 448);
+            this.salesDataGridView.TabIndex = 1;
+            this.salesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.sales_DataBindingComplete);
             // 
             // YesterdaySalesButton
             // 
@@ -212,7 +212,7 @@
             this.RemainButton.TabIndex = 0;
             this.RemainButton.Text = "Остатки";
             this.RemainButton.UseVisualStyleBackColor = true;
-            this.RemainButton.Click += new System.EventHandler(this.RemainButton_Click);
+            this.RemainButton.Click += new System.EventHandler(this.RemainsButton_Click);
             // 
             // Form1
             // 
@@ -221,10 +221,10 @@
             this.ClientSize = new System.Drawing.Size(603, 588);
             this.Controls.Add(this.Tab);
             this.Controls.Add(this.SaveTableButton);
-            this.Controls.Add(this.sales);
+            this.Controls.Add(this.salesDataGridView);
             this.Name = "Form1";
             this.Text = "Отчеты";
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).EndInit();
             this.Tab.ResumeLayout(false);
             this.tabTop.ResumeLayout(false);
             this.tabTop.PerformLayout();
@@ -239,7 +239,7 @@
         #endregion
 
         private System.Windows.Forms.Button OpenForTopsButton;
-        private System.Windows.Forms.DataGridView sales;
+        private System.Windows.Forms.DataGridView salesDataGridView;
         private System.Windows.Forms.Button YesterdaySalesButton;
         private System.Windows.Forms.Button TodaySalesButton;
         private System.Windows.Forms.TextBox TopSalesPath;
