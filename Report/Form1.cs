@@ -197,7 +197,6 @@ namespace Report
                             resDataTable.Merge(this.getTop(table, filter));
                         }
                         sales.DataSource = resDataTable;
-                        //asd
                         this.colorizeDataView(sales.ColumnCount, sales.RowCount);
                     }
                 }
@@ -254,7 +253,6 @@ namespace Report
             }
             
         }
-
         private void SaveTable_Click(object sender, EventArgs e)
         {
             try
@@ -285,7 +283,6 @@ namespace Report
             }
             
         }
-
         private void RemainButton_Click(object sender, EventArgs e)
         {
             try
@@ -306,7 +303,6 @@ namespace Report
                                  MessageBoxIcon.Error);
             }
         }
-
         private void RevisionButton_Click(object sender, EventArgs e)
         {
             try
@@ -327,7 +323,6 @@ namespace Report
                                  MessageBoxIcon.Error);
             }
         }
-
         private void sales_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.sales.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;

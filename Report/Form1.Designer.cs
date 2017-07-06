@@ -55,7 +55,7 @@
             // 
             this.OpenForTopsButton.Location = new System.Drawing.Point(3, 21);
             this.OpenForTopsButton.Name = "OpenForTopsButton";
-            this.OpenForTopsButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenForTopsButton.Size = new System.Drawing.Size(87, 23);
             this.OpenForTopsButton.TabIndex = 0;
             this.OpenForTopsButton.Text = "Top";
             this.OpenForTopsButton.UseVisualStyleBackColor = true;
@@ -67,6 +67,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.sales.BackgroundColor = System.Drawing.SystemColors.Control;
             this.sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sales.Location = new System.Drawing.Point(8, 106);
             this.sales.Name = "sales";
@@ -96,23 +97,23 @@
             // 
             // TopSalesPath
             // 
-            this.TopSalesPath.Location = new System.Drawing.Point(84, 23);
+            this.TopSalesPath.Location = new System.Drawing.Point(93, 23);
             this.TopSalesPath.Name = "TopSalesPath";
             this.TopSalesPath.Size = new System.Drawing.Size(488, 20);
             this.TopSalesPath.TabIndex = 4;
             // 
             // YesterdaySalesPath
             // 
-            this.YesterdaySalesPath.Location = new System.Drawing.Point(84, 6);
+            this.YesterdaySalesPath.Location = new System.Drawing.Point(84, 8);
             this.YesterdaySalesPath.Name = "YesterdaySalesPath";
-            this.YesterdaySalesPath.Size = new System.Drawing.Size(487, 20);
+            this.YesterdaySalesPath.Size = new System.Drawing.Size(497, 20);
             this.YesterdaySalesPath.TabIndex = 5;
             // 
             // TodaySalesPath
             // 
             this.TodaySalesPath.Location = new System.Drawing.Point(84, 39);
             this.TodaySalesPath.Name = "TodaySalesPath";
-            this.TodaySalesPath.Size = new System.Drawing.Size(487, 20);
+            this.TodaySalesPath.Size = new System.Drawing.Size(497, 20);
             this.TodaySalesPath.TabIndex = 6;
             // 
             // SaveTableButton
