@@ -1,0 +1,10 @@
+C:\vsProjects\Report\Report\bin\Release\Report.exe
+C:\vsProjects\Report\Report\bin\Release\Report.pdb
+C:\vsProjects\Report\Report\bin\Release\Excel.dll
+C:\vsProjects\Report\Report\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\vsProjects\Report\Report\bin\Release\Excel.pdb
+C:\vsProjects\Report\Report\obj\Release\Report.Form1.resources
+C:\vsProjects\Report\Report\obj\Release\Report.Properties.Resources.resources
+C:\vsProjects\Report\Report\obj\Release\Report.csproj.GenerateResource.Cache
+C:\vsProjects\Report\Report\obj\Release\Report.exe
+C:\vsProjects\Report\Report\obj\Release\Report.pdb
