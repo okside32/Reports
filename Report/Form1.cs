@@ -197,7 +197,7 @@ namespace Report
                             resDataTable.Merge(this.getTop(table, filter));
                         }
                         sales.DataSource = resDataTable;
-                        //this.sales.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+                        //asd
                         this.colorizeDataView(sales.ColumnCount, sales.RowCount);
                     }
                 }
