@@ -1,14 +1,22 @@
 ﻿//using ClosedXML.Excel;
+
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
+using System.IO.Packaging;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Excel;
+using Color = System.Drawing.Color;
 
 
 namespace Report
@@ -24,6 +32,7 @@ namespace Report
         private DataTable remainsDataTable;
         private DataTable revisionDataTable;
         private DataTable todayDataTable;
+        private DataTable transferDataTable;
         private const int topCount = 6;
         private readonly List<string> filterArray = new List<string> {"чол", "жін", "підл", "дит", "юн"};
 
@@ -395,6 +404,161 @@ namespace Report
         private void sales_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             salesDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+        }
+
+        private void TransferRemainbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var ofd = new OpenFileDialog())
+                {
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        TransferRemaintextBox.Text = ofd.FileName;
+                        remainsDataTable = excelToRemainsTable(ofd);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void Transferbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var ofd = new OpenFileDialog())
+                {
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        TransfertextBox.Text = ofd.FileName;
+                         this.transferDataTable = stringToTransferDataTable(ReadAllTextFromDocx(ofd));
+                        salesDataGridView.DataSource = FindTransfer();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private DataTable FindTransfer()
+        {
+            var searchTerm = new Regex(@"^[0-9]+.*?");
+            var qery = from rem in this.remainsDataTable.AsEnumerable()
+                join tr in this.transferDataTable.AsEnumerable()
+                    on searchTerm.Match(rem.Field<string>("article")).Value.ToLower() equals
+                    searchTerm.Match(tr.Field<string>("article")).Value.ToLower()
+                where rem.Field<double>("final") > 0.0
+                select new
+                {
+                    article = rem.Field<string>("article"),
+                    final = rem.Field<double>("final"),
+                    count = tr.Field<string>("count"),
+                    distanation = tr.Field<string>("distanation"),
+                };
+            return this.ToDataTable(qery.ToList());
+        }
+
+        private DataTable stringToTransferDataTable(string text)
+        {
+            var start = "Дніпро.*?\r\n";
+            var end = "Загалом.+";
+            string sOutput = Regex.Replace(text, start, "");
+            sOutput = Regex.Replace(sOutput, end, "").Trim();
+            var articleList = Regex.Split(sOutput, "\r\n");
+            List<Transfer> transfers = new List<Transfer>();
+            string dest = "";
+            foreach (var article in articleList)
+            {
+                if (article.Contains("На "))
+                {
+                    dest = article.Replace("На", "").Trim();
+                    continue;
+                }
+                var idCount = article.Split('-');
+                transfers.Add(
+                    new Transfer(
+                        dest, idCount[0].Trim(), idCount[1].Trim()
+                        )
+                    );
+            }
+
+            return ToDataTable(transfers);
+        }
+
+        public  DataTable ToDataTable<T>(IList<T> data)
+        {
+            PropertyDescriptorCollection properties =
+                TypeDescriptor.GetProperties(typeof (T));
+            DataTable table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            foreach (T item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties)
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        public  string ReadAllTextFromDocx(OpenFileDialog ofd)
+        {
+            StringBuilder stringBuilder;
+            using (WordprocessingDocument wordprocessingDocument = WordprocessingDocument.Open(ofd.FileName, false))
+            {
+                NameTable nameTable = new NameTable();
+                XmlNamespaceManager xmlNamespaceManager = new XmlNamespaceManager(nameTable);
+                xmlNamespaceManager.AddNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main");
+
+                string wordprocessingDocumentText;
+                using (StreamReader streamReader = new StreamReader(wordprocessingDocument.MainDocumentPart.GetStream())
+                    )
+                {
+                    wordprocessingDocumentText = streamReader.ReadToEnd();
+                }
+
+                stringBuilder = new StringBuilder(wordprocessingDocumentText.Length);
+
+                XmlDocument xmlDocument = new XmlDocument(nameTable);
+                xmlDocument.LoadXml(wordprocessingDocumentText);
+
+                XmlNodeList paragraphNodes = xmlDocument.SelectNodes("//w:p", xmlNamespaceManager);
+                foreach (XmlNode paragraphNode in paragraphNodes)
+                {
+                    XmlNodeList textNodes = paragraphNode.SelectNodes(".//w:t | .//w:tab | .//w:br", xmlNamespaceManager);
+                    foreach (XmlNode textNode in textNodes)
+                    {
+                        switch (textNode.Name)
+                        {
+                            case "w:t":
+                                stringBuilder.Append(textNode.InnerText);
+                                break;
+
+                            case "w:tab":
+                                stringBuilder.Append("\t");
+                                break;
+
+                            case "w:br":
+                                stringBuilder.Append("\v");
+                                break;
+                        }
+                    }
+
+                    stringBuilder.Append(Environment.NewLine);
+                }
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }

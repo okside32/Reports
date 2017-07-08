@@ -44,11 +44,17 @@
             this.RemainTextBox = new System.Windows.Forms.TextBox();
             this.RevisionButton = new System.Windows.Forms.Button();
             this.RemainButton = new System.Windows.Forms.Button();
+            this.tabTransfer = new System.Windows.Forms.TabPage();
+            this.TransferRemainbutton = new System.Windows.Forms.Button();
+            this.Transferbutton = new System.Windows.Forms.Button();
+            this.TransferRemaintextBox = new System.Windows.Forms.TextBox();
+            this.TransfertextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             this.Tab.SuspendLayout();
             this.tabTop.SuspendLayout();
             this.tabRemains.SuspendLayout();
             this.tabAudit.SuspendLayout();
+            this.tabTransfer.SuspendLayout();
             this.SuspendLayout();
             // 
             // OpenForTopsButton
@@ -97,6 +103,9 @@
             // 
             // TopSalesPath
             // 
+            this.TopSalesPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TopSalesPath.Location = new System.Drawing.Point(93, 23);
             this.TopSalesPath.Name = "TopSalesPath";
             this.TopSalesPath.Size = new System.Drawing.Size(488, 20);
@@ -104,6 +113,9 @@
             // 
             // YesterdaySalesPath
             // 
+            this.YesterdaySalesPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.YesterdaySalesPath.Location = new System.Drawing.Point(84, 8);
             this.YesterdaySalesPath.Name = "YesterdaySalesPath";
             this.YesterdaySalesPath.Size = new System.Drawing.Size(497, 20);
@@ -111,6 +123,9 @@
             // 
             // TodaySalesPath
             // 
+            this.TodaySalesPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TodaySalesPath.Location = new System.Drawing.Point(84, 39);
             this.TodaySalesPath.Name = "TodaySalesPath";
             this.TodaySalesPath.Size = new System.Drawing.Size(497, 20);
@@ -130,9 +145,12 @@
             // Tab
             // 
             this.Tab.AllowDrop = true;
+            this.Tab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Tab.Controls.Add(this.tabTop);
             this.Tab.Controls.Add(this.tabRemains);
             this.Tab.Controls.Add(this.tabAudit);
+            this.Tab.Controls.Add(this.tabTransfer);
             this.Tab.Location = new System.Drawing.Point(1, 1);
             this.Tab.Multiline = true;
             this.Tab.Name = "Tab";
@@ -182,6 +200,9 @@
             // 
             // RevisionTextBox
             // 
+            this.RevisionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RevisionTextBox.Location = new System.Drawing.Point(100, 35);
             this.RevisionTextBox.Name = "RevisionTextBox";
             this.RevisionTextBox.Size = new System.Drawing.Size(478, 20);
@@ -189,6 +210,9 @@
             // 
             // RemainTextBox
             // 
+            this.RemainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RemainTextBox.Location = new System.Drawing.Point(100, 9);
             this.RemainTextBox.Name = "RemainTextBox";
             this.RemainTextBox.Size = new System.Drawing.Size(478, 20);
@@ -214,6 +238,60 @@
             this.RemainButton.UseVisualStyleBackColor = true;
             this.RemainButton.Click += new System.EventHandler(this.RemainsButton_Click);
             // 
+            // tabTransfer
+            // 
+            this.tabTransfer.Controls.Add(this.TransfertextBox);
+            this.tabTransfer.Controls.Add(this.TransferRemaintextBox);
+            this.tabTransfer.Controls.Add(this.Transferbutton);
+            this.tabTransfer.Controls.Add(this.TransferRemainbutton);
+            this.tabTransfer.Location = new System.Drawing.Point(4, 22);
+            this.tabTransfer.Name = "tabTransfer";
+            this.tabTransfer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTransfer.Size = new System.Drawing.Size(584, 73);
+            this.tabTransfer.TabIndex = 3;
+            this.tabTransfer.Text = "Отправление";
+            this.tabTransfer.UseVisualStyleBackColor = true;
+            // 
+            // TransferRemainbutton
+            // 
+            this.TransferRemainbutton.Location = new System.Drawing.Point(7, 6);
+            this.TransferRemainbutton.Name = "TransferRemainbutton";
+            this.TransferRemainbutton.Size = new System.Drawing.Size(87, 23);
+            this.TransferRemainbutton.TabIndex = 0;
+            this.TransferRemainbutton.Text = "Остатки";
+            this.TransferRemainbutton.UseVisualStyleBackColor = true;
+            this.TransferRemainbutton.Click += new System.EventHandler(this.TransferRemainbutton_Click);
+            // 
+            // Transferbutton
+            // 
+            this.Transferbutton.Location = new System.Drawing.Point(6, 35);
+            this.Transferbutton.Name = "Transferbutton";
+            this.Transferbutton.Size = new System.Drawing.Size(87, 23);
+            this.Transferbutton.TabIndex = 1;
+            this.Transferbutton.Text = "Отправление";
+            this.Transferbutton.UseVisualStyleBackColor = true;
+            this.Transferbutton.Click += new System.EventHandler(this.Transferbutton_Click);
+            // 
+            // TransferRemaintextBox
+            // 
+            this.TransferRemaintextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TransferRemaintextBox.Location = new System.Drawing.Point(100, 8);
+            this.TransferRemaintextBox.Name = "TransferRemaintextBox";
+            this.TransferRemaintextBox.Size = new System.Drawing.Size(478, 20);
+            this.TransferRemaintextBox.TabIndex = 2;
+            // 
+            // TransfertextBox
+            // 
+            this.TransfertextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TransfertextBox.Location = new System.Drawing.Point(100, 37);
+            this.TransfertextBox.Name = "TransfertextBox";
+            this.TransfertextBox.Size = new System.Drawing.Size(479, 20);
+            this.TransfertextBox.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +310,8 @@
             this.tabRemains.PerformLayout();
             this.tabAudit.ResumeLayout(false);
             this.tabAudit.PerformLayout();
+            this.tabTransfer.ResumeLayout(false);
+            this.tabTransfer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -254,6 +334,11 @@
         private System.Windows.Forms.TextBox RemainTextBox;
         private System.Windows.Forms.Button RevisionButton;
         private System.Windows.Forms.Button RemainButton;
+        private System.Windows.Forms.TabPage tabTransfer;
+        private System.Windows.Forms.TextBox TransfertextBox;
+        private System.Windows.Forms.TextBox TransferRemaintextBox;
+        private System.Windows.Forms.Button Transferbutton;
+        private System.Windows.Forms.Button TransferRemainbutton;
     }
 }
 
