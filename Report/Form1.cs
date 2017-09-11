@@ -102,22 +102,38 @@ namespace Report
             dataReader.IsFirstRowAsColumnNames = false;
             DataTable table = dataReader.AsDataSet().Tables[0];
             dataReader.Close();
-            int ctn = table.Rows.Count;
             return table;
         }
 
         private DataTable excelToRemainsTable(OpenFileDialog ofd)
         {
             DataTable dataTable = readFromExcel(ofd.FileName);
-            dataTable.Columns.RemoveAt(0);
-            dataTable.Columns[0].ColumnName = "article";
-            dataTable.Columns[1].ColumnName = "initial";
-            dataTable.Columns[2].ColumnName = "receipts";
-            dataTable.Columns[3].ColumnName = "rate";
-            dataTable.Columns[4].ColumnName = "final";
+            //dataTable.Columns.RemoveAt(0);
+            //dataTable.AcceptChanges();
+            const int articleColNum = 1;
+            const int remainsStartCol = 6;
+            const int remainsEndCol = 9;
+            dataTable.Columns[articleColNum].ColumnName = "article";
+            dataTable.Columns[remainsStartCol].ColumnName = "initial";
+            dataTable.Columns[remainsStartCol+1].ColumnName = "receipts";
+            dataTable.Columns[remainsStartCol+2].ColumnName = "rate";
+            dataTable.Columns[remainsEndCol].ColumnName = "final";
             dataTable.AcceptChanges();
+            string[] existingcol = { "article", "initial","receipts","rate","final" };
+            List<DataColumn> columnsToDelete = new List<DataColumn>();
+            foreach(DataColumn col in dataTable.Columns)
+            {
+                if(!existingcol.Contains(col.ColumnName))
+                    columnsToDelete.Add(col);       
+            }
+
+            foreach (DataColumn col in columnsToDelete)
+            {
+                dataTable.Columns.Remove(col);
+            }
+            
             DataTable resTable = dataTable.Clone();
-            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 DataRow dr = dataTable.Rows[i];
                 if (Regex.IsMatch(dr["article"].ToString(), @"^\d"))

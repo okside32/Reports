@@ -14,7 +14,6 @@ C:\vsProjects\Report\Report\bin\Debug\EPPlus.xml
 C:\vsProjects\Report\Report\bin\Debug\Excel.pdb
 C:\vsProjects\Report\Report\bin\Debug\Spire.Common.xml
 C:\vsProjects\Report\Report\bin\Debug\Spire.Pdf.xml
-C:\vsProjects\Report\Report\obj\Debug\Report.csprojResolveAssemblyReference.cache
 C:\vsProjects\Report\Report\obj\Debug\Report.Form1.resources
 C:\vsProjects\Report\Report\obj\Debug\Report.Properties.Resources.resources
 C:\vsProjects\Report\Report\obj\Debug\Report.csproj.GenerateResource.Cache
